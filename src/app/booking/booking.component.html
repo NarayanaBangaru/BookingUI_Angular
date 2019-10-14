@@ -1,0 +1,27 @@
+<h2 class="title">BOOKING</h2>
+<table>
+  <tr>
+    <th>Object Name</th>
+    <th>Date From</th>
+    <th>Date To</th>
+    <th>Is Active</th>
+    <th>Amount</th>
+    <th>Currency</th>
+    <th>Comment</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let customer of customers; let i = index">
+    <td>{{customer.object_Name}}</td>
+    <td>{{customer.date_From | date: 'dd/MM/yyyy' }}</td>
+    <td>{{customer.date_To | date: 'dd/MM/yyyy'}}</td>
+    <td>{{customer.is_Active}}</td>
+    <td>{{customer.amount}}</td>
+    <td>{{customer.currency}}</td>
+    <td>{{customer.comment}}</td>
+    <td><button (click)="deleteCustomer(customer.id, i)">Delete</button></td>
+  </tr>
+</table>
+<div class="btn-holder">
+  <button (click)="reservationList()">Reservation</button>
+</div>
+
