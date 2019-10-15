@@ -24,9 +24,12 @@ export class BookingComponent implements OnInit {
   }
   
   deleteCustomer(id: number, index: number) {
-    this.bookingService.deleteCustomer(id).subscribe(() => {
-      this.customers.splice(index, 1);
-    });
+    const response = confirm('Are you sure you want to delete?');
+    if(response) {
+      this.bookingService.deleteCustomer(id).subscribe(() => {
+        this.customers.splice(index, 1);
+      });
+    }
   }
 
   reservationList() {
